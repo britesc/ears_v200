@@ -1,9 +1,11 @@
 var indexSectionsWithContent =
 {
-  0: "adelnpst",
+  0: "abdeglnpst",
   1: "e",
   2: "ls",
-  3: "adelnpt"
+  3: "bg",
+  4: "ad",
+  5: "adelnpt"
 };
 
 var indexSectionNames =
@@ -11,7 +13,9 @@ var indexSectionNames =
   0: "all",
   1: "files",
   2: "functions",
-  3: "pages"
+  3: "variables",
+  4: "defines",
+  5: "pages"
 };
 
 var indexSectionLabels =
@@ -19,6 +23,8 @@ var indexSectionLabels =
   0: "All",
   1: "Files",
   2: "Functions",
-  3: "Pages"
+  3: "Variables",
+  4: "Macros",
+  5: "Pages"
 };
 

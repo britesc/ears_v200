@@ -7,9 +7,5 @@ Styles
 .. toctree::
     :maxdepth: 2
 
-    overview
-    style_sheets
-    local_styles
-    transitions
-    themes
+    styles
     style-properties

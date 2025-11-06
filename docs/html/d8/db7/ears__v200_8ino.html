@@ -92,14 +92,122 @@ $(function(){initNavTree('d8/db7/ears__v200_8ino.html','../../',''); });
   <div class="headertitle"><div class="title">ears_v200.ino File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<table class="memberdecls">
+<div class="textblock"><code>#include &lt;D_Serial_Debug.h&gt;</code><br />
+<code>#include &lt;Arduino_GFX_Library.h&gt;</code><br />
+<code>#include &lt;lcd_defines.h&gt;</code><br />
+<code>#include &lt;i2c_defines.h&gt;</code><br />
+<code>#include &lt;Wire.h&gt;</code><br />
+<code>#include &lt;lvgl.h&gt;</code><br />
+<code>#include &lt;../bsp/bsp_cst328.h&gt;</code><br />
+<code>#include &lt;ui.h&gt;</code><br />
+<code>#include &lt;vars.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:aef3457fba0ffa145e841c80f85adda1c" id="r_aef3457fba0ffa145e841c80f85adda1c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef3457fba0ffa145e841c80f85adda1c">APP_VERSION_MAJOR</a>&#160;&#160;&#160;&quot;0&quot;</td></tr>
+<tr class="memitem:a7732f188a6cca879e493081406cbb293" id="r_a7732f188a6cca879e493081406cbb293"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7732f188a6cca879e493081406cbb293">APP_VERSION_MINOR</a>&#160;&#160;&#160;&quot;0&quot;</td></tr>
+<tr class="memitem:a3524583a75de0db510345b6f0eb189f7" id="r_a3524583a75de0db510345b6f0eb189f7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3524583a75de0db510345b6f0eb189f7">APP_VERSION_PATCH</a>&#160;&#160;&#160;&quot;200&quot;</td></tr>
+<tr class="memitem:a3dbd0be03bfdb28562e7cfae80fff3fd" id="r_a3dbd0be03bfdb28562e7cfae80fff3fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3dbd0be03bfdb28562e7cfae80fff3fd">APP_VERSION_BUILD</a>&#160;&#160;&#160;&quot;(Dev)&quot;</td></tr>
+<tr class="memitem:a92673e33f27532767749b79edb8ef806" id="r_a92673e33f27532767749b79edb8ef806"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92673e33f27532767749b79edb8ef806">APP_VERSION</a>&#160;&#160;&#160;<a class="el" href="#aef3457fba0ffa145e841c80f85adda1c">APP_VERSION_MAJOR</a> + &quot;.&quot; + <a class="el" href="#a7732f188a6cca879e493081406cbb293">APP_VERSION_MINOR</a> + &quot;.&quot; + <a class="el" href="#a3524583a75de0db510345b6f0eb189f7">APP_VERSION_PATCH</a> + &quot; &quot; + <a class="el" href="#a3dbd0be03bfdb28562e7cfae80fff3fd">APP_VERSION_BUILD</a></td></tr>
+<tr class="memitem:ad72dbcf6d0153db1b8d8a58001feed83" id="r_ad72dbcf6d0153db1b8d8a58001feed83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>&#160;&#160;&#160;1</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d" id="r_a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
 <tr class="memitem:afe461d27b9c48d5921c00d521181f12f" id="r_afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe461d27b9c48d5921c00d521181f12f">loop</a> ()</td></tr>
 <tr class="memitem:ac764ee28e2916a7de10b22927e02d1a4" id="r_ac764ee28e2916a7de10b22927e02d1a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac764ee28e2916a7de10b22927e02d1a4">setup1</a> ()</td></tr>
 <tr class="memitem:a39ceba300a80e348e278539f57e0ca79" id="r_a39ceba300a80e348e278539f57e0ca79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39ceba300a80e348e278539f57e0ca79">loop1</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a310f7e1a6cac48dc89c6cfcc3f6ef48f" id="r_a310f7e1a6cac48dc89c6cfcc3f6ef48f"><td class="memItemLeft" align="right" valign="top">Arduino_DataBus *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a310f7e1a6cac48dc89c6cfcc3f6ef48f">bus</a> = new Arduino_RPiPicoSPI(LCD_DC_PIN, LCD_CS_PIN, LCD_SCK_PIN, LCD_MOSI_PIN, LCD_MISO_PIN, LCD_SPI_NUM)</td></tr>
+<tr class="memitem:aa35e9135b0a3620ecb9b867344834657" id="r_aa35e9135b0a3620ecb9b867344834657"><td class="memItemLeft" align="right" valign="top">Arduino_GFX *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa35e9135b0a3620ecb9b867344834657">gfx</a></td></tr>
 </table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="a92673e33f27532767749b79edb8ef806" name="a92673e33f27532767749b79edb8ef806"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92673e33f27532767749b79edb8ef806">&#9670;&#160;</a></span>APP_VERSION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define APP_VERSION&#160;&#160;&#160;<a class="el" href="#aef3457fba0ffa145e841c80f85adda1c">APP_VERSION_MAJOR</a> + &quot;.&quot; + <a class="el" href="#a7732f188a6cca879e493081406cbb293">APP_VERSION_MINOR</a> + &quot;.&quot; + <a class="el" href="#a3524583a75de0db510345b6f0eb189f7">APP_VERSION_PATCH</a> + &quot; &quot; + <a class="el" href="#a3dbd0be03bfdb28562e7cfae80fff3fd">APP_VERSION_BUILD</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3dbd0be03bfdb28562e7cfae80fff3fd" name="a3dbd0be03bfdb28562e7cfae80fff3fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dbd0be03bfdb28562e7cfae80fff3fd">&#9670;&#160;</a></span>APP_VERSION_BUILD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define APP_VERSION_BUILD&#160;&#160;&#160;&quot;(Dev)&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aef3457fba0ffa145e841c80f85adda1c" name="aef3457fba0ffa145e841c80f85adda1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef3457fba0ffa145e841c80f85adda1c">&#9670;&#160;</a></span>APP_VERSION_MAJOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define APP_VERSION_MAJOR&#160;&#160;&#160;&quot;0&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7732f188a6cca879e493081406cbb293" name="a7732f188a6cca879e493081406cbb293"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7732f188a6cca879e493081406cbb293">&#9670;&#160;</a></span>APP_VERSION_MINOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define APP_VERSION_MINOR&#160;&#160;&#160;&quot;0&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3524583a75de0db510345b6f0eb189f7" name="a3524583a75de0db510345b6f0eb189f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3524583a75de0db510345b6f0eb189f7">&#9670;&#160;</a></span>APP_VERSION_PATCH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define APP_VERSION_PATCH&#160;&#160;&#160;&quot;200&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad72dbcf6d0153db1b8d8a58001feed83" name="ad72dbcf6d0153db1b8d8a58001feed83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad72dbcf6d0153db1b8d8a58001feed83">&#9670;&#160;</a></span>DEBUG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="afe461d27b9c48d5921c00d521181f12f" name="afe461d27b9c48d5921c00d521181f12f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afe461d27b9c48d5921c00d521181f12f">&#9670;&#160;</a></span>loop()</h2>
@@ -171,6 +279,38 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Core 1 The standard Arduino setup function used for setup1 and configuration tasks. </p>
 
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="a310f7e1a6cac48dc89c6cfcc3f6ef48f" name="a310f7e1a6cac48dc89c6cfcc3f6ef48f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a310f7e1a6cac48dc89c6cfcc3f6ef48f">&#9670;&#160;</a></span>bus</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Arduino_DataBus* bus = new Arduino_RPiPicoSPI(LCD_DC_PIN, LCD_CS_PIN, LCD_SCK_PIN, LCD_MOSI_PIN, LCD_MISO_PIN, LCD_SPI_NUM)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa35e9135b0a3620ecb9b867344834657" name="aa35e9135b0a3620ecb9b867344834657"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa35e9135b0a3620ecb9b867344834657">&#9670;&#160;</a></span>gfx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Arduino_GFX* gfx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <span class="keyword">new</span> Arduino_ST7789(</div>
+<div class="line">  <a class="code hl_variable" href="#a310f7e1a6cac48dc89c6cfcc3f6ef48f">bus</a>, LCD_RST_PIN, LCD_Orientation , <span class="keyword">true</span> )</div>
+<div class="ttc" id="aears__v200_8ino_html_a310f7e1a6cac48dc89c6cfcc3f6ef48f"><div class="ttname"><a href="#a310f7e1a6cac48dc89c6cfcc3f6ef48f">bus</a></div><div class="ttdeci">Arduino_DataBus * bus</div><div class="ttdef"><b>Definition</b> ears_v200.ino:58</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
