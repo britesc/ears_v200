@@ -34,7 +34,7 @@
  ******************************************************************************/
 #define APP_VERSION_MAJOR "0"
 #define APP_VERSION_MINOR "0"
-#define APP_VERSION_PATCH "220"
+#define APP_VERSION_PATCH "250"
 #define APP_VERSION_BUILD "(Dev)"
 #define APP_VERSION       APP_VERSION_MAJOR + "." + APP_VERSION_MINOR + "." + APP_VERSION_PATCH + " " + APP_VERSION_BUILD 
 
@@ -165,6 +165,8 @@ void setup(void) {
   ui_init();
 
   D_SerialPrintln("Setup done");
+
+  output_info();  
 }
 
 void loop() {
@@ -183,7 +185,7 @@ void loop() {
 
 void setup1() {
   // TODO
-  // set_var_has_valid_zap_number(false);  
+   set_var_global_variable_has_valid_zap_number(false);  
   // PFE.begin();
   // if(!PFE.isEepromValid()) 
   // {
@@ -230,7 +232,6 @@ void init_serial() {
       x = D_SERIAL_DELAY + 1;
     }
   }
-  output_info();
 #endif  
 }
 

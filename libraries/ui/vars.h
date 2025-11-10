@@ -20,8 +20,10 @@ enum FlowGlobalVariables {
 
 // Native global variables
 
-extern const char *get_var_gobal_variable_error_code();
-extern void set_var_gobal_variable_error_code(const char *value);
+extern const char *get_var_global_variable_error_code();
+extern void set_var_global_variable_error_code(const char *value);
+extern bool get_var_global_variable_has_valid_zap_number();
+extern void set_var_global_variable_has_valid_zap_number(bool value);
 
 
 #ifdef __cplusplus

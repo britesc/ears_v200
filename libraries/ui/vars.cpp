@@ -7,13 +7,33 @@
 #include "structs.h"
 #include "ui.h"
 
-char gobal_variable_error_code[100] = { 0 };
+char global_variable_error_code[100] = { 0 };
+bool global_variable_has_valid_zap_number = false;
 
-const char *get_var_gobal_variable_error_code() {
-    return gobal_variable_error_code;
+void init_vars() {
+	global_variable_has_valid_zap_number = false;
 }
 
-void set_var_gobal_variable_error_code(const char *value) {
-    strncpy(gobal_variable_error_code, value, sizeof(gobal_variable_error_code) / sizeof(char));
-    gobal_variable_error_code[sizeof(gobal_variable_error_code) / sizeof(char) - 1] = 0;
+void tick_vars() {
+    // nothing here, you can add some code here to watch var changes
 }
+
+const char *get_var_global_variable_error_code() {
+    return global_variable_error_code;
+}
+
+void set_var_global_variable_error_code(const char *value) {
+    strncpy(global_variable_error_code, value, sizeof(global_variable_error_code) / sizeof(char));
+    global_variable_error_code[sizeof(global_variable_error_code) / sizeof(char) - 1] = 0;
+}
+
+
+bool get_var_global_variable_has_valid_zap_number() {
+    return global_variable_has_valid_zap_number;
+}
+
+void set_var_global_variable_has_valid_zap_number(bool value) {
+    global_variable_has_valid_zap_number = value;
+}
+
+	

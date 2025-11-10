@@ -22,6 +22,20 @@ lv_style_t *get_style_style_dark_label_error_MAIN_DEFAULT();
 void add_style_style_dark_label_error(lv_obj_t *obj);
 void remove_style_style_dark_label_error(lv_obj_t *obj);
 
+// Style: Style_Light_Label_Header
+lv_style_t *get_style_style_light_label_header_MAIN_DEFAULT();
+void add_style_style_light_label_header(lv_obj_t *obj);
+void remove_style_style_light_label_header(lv_obj_t *obj);
+
+// Style: Style_Light_Label_Footer
+lv_style_t *get_style_style_light_label_footer_MAIN_DEFAULT();
+void add_style_style_light_label_footer(lv_obj_t *obj);
+void remove_style_style_light_label_footer(lv_obj_t *obj);
+
+// Style: Style_ImageButton_Hidden
+void add_style_style_image_button_hidden(lv_obj_t *obj);
+void remove_style_style_image_button_hidden(lv_obj_t *obj);
+
 
 
 #ifdef __cplusplus

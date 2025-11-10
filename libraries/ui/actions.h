@@ -7,6 +7,7 @@
 extern "C" {
 #endif
 
+extern void action_action_reboot_system(lv_event_t * e);
 
 
 #ifdef __cplusplus
