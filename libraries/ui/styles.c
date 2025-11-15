@@ -163,6 +163,18 @@ void remove_style_style_image_button_hidden(lv_obj_t *obj) {
 };
 
 //
+// Style: Style_Message_Box
+//
+
+void add_style_style_message_box(lv_obj_t *obj) {
+    (void)obj;
+};
+
+void remove_style_style_message_box(lv_obj_t *obj) {
+    (void)obj;
+};
+
+//
 //
 //
 
@@ -175,6 +187,7 @@ void add_style(lv_obj_t *obj, int32_t styleIndex) {
         add_style_style_light_label_header,
         add_style_style_light_label_footer,
         add_style_style_image_button_hidden,
+        add_style_style_message_box,
     };
     add_style_funcs[styleIndex](obj);
 }
@@ -188,6 +201,7 @@ void remove_style(lv_obj_t *obj, int32_t styleIndex) {
         remove_style_style_light_label_header,
         remove_style_style_light_label_footer,
         remove_style_style_image_button_hidden,
+        remove_style_style_message_box,
     };
     remove_style_funcs[styleIndex](obj);
 }

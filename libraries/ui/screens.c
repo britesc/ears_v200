@@ -35,7 +35,7 @@ static void event_handler_cb_screen_boot_animation_boot_animation_logo(lv_event_
     }
 }
 
-static void event_handler_cb_screen_menu_1_template_button_30(lv_event_t *e) {
+static void event_handler_cb_screen_initial_setup_button_do_reboot(lv_event_t *e) {
     lv_event_code_t event = lv_event_get_code(e);
     void *flowState = lv_event_get_user_data(e);
     (void)flowState;
@@ -43,6 +43,28 @@ static void event_handler_cb_screen_menu_1_template_button_30(lv_event_t *e) {
     if (event == LV_EVENT_RELEASED) {
         e->user_data = (void *)0;
         flowPropagateValueLVGLEvent(flowState, 20, 0, e);
+    }
+}
+
+static void event_handler_cb_screen_initial_setup_button_message_box_confirm_erase_yes(lv_event_t *e) {
+    lv_event_code_t event = lv_event_get_code(e);
+    void *flowState = lv_event_get_user_data(e);
+    (void)flowState;
+    
+    if (event == LV_EVENT_RELEASED) {
+        e->user_data = (void *)0;
+        action_action_button_message_box_confirm_erase_yes(e);
+    }
+}
+
+static void event_handler_cb_screen_initial_setup_button_message_box_confirm_erase_no(lv_event_t *e) {
+    lv_event_code_t event = lv_event_get_code(e);
+    void *flowState = lv_event_get_user_data(e);
+    (void)flowState;
+    
+    if (event == LV_EVENT_RELEASED) {
+        e->user_data = (void *)0;
+        action_action_button_message_box_confirm_erase_no(e);
     }
 }
 
@@ -124,14 +146,15 @@ void tick_screen_screen_boot_animation() {
     (void)flowState;
 }
 
-void create_screen_screen_menu_1() {
+void create_screen_screen_initial_setup() {
     void *flowState = getFlowState(0, 2);
     (void)flowState;
     lv_obj_t *obj = lv_obj_create(0);
-    objects.screen_menu_1 = obj;
+    objects.screen_initial_setup = obj;
     lv_obj_set_pos(obj, 0, 0);
     lv_obj_set_size(obj, 320, 240);
     lv_obj_clear_flag(obj, LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_SNAPPABLE|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER);
+    lv_obj_add_state(obj, LV_STATE_FOCUSED|LV_STATE_CHECKED);
     add_style_style_dark_screen(obj);
     {
         lv_obj_t *parent_obj = obj;
@@ -194,27 +217,27 @@ void create_screen_screen_menu_1() {
             {
                 lv_obj_t *parent_obj = obj;
                 {
-                    // Template_Button_16
+                    // Button_Do_Zap:_Number
                     lv_obj_t *obj = lv_imagebutton_create(parent_obj);
-                    objects.template_button_16 = obj;
+                    objects.button_do_zap__number = obj;
                     lv_obj_set_pos(obj, 0, 0);
                     lv_obj_set_size(obj, 48, 48);
                     lv_imagebutton_set_src(obj, LV_IMAGEBUTTON_STATE_RELEASED, NULL, &img_image_button_coloured_zap, NULL);
                     lv_imagebutton_set_src(obj, LV_IMAGEBUTTON_STATE_PRESSED, NULL, &img_image_button_coloured_zap, NULL);
                 }
                 {
-                    // Template_Button_17
+                    // Button_Do_Password
                     lv_obj_t *obj = lv_imagebutton_create(parent_obj);
-                    objects.template_button_17 = obj;
+                    objects.button_do_password = obj;
                     lv_obj_set_pos(obj, 64, 0);
                     lv_obj_set_size(obj, 48, 48);
                     lv_imagebutton_set_src(obj, LV_IMAGEBUTTON_STATE_RELEASED, NULL, &img_image_button_coloured_key, NULL);
                     lv_imagebutton_set_src(obj, LV_IMAGEBUTTON_STATE_PRESSED, NULL, &img_image_button_coloured_key, NULL);
                 }
                 {
-                    // Template_Button_18
+                    // Button_Do_Info
                     lv_obj_t *obj = lv_imagebutton_create(parent_obj);
-                    objects.template_button_18 = obj;
+                    objects.button_do_info = obj;
                     lv_obj_set_pos(obj, 128, 0);
                     lv_obj_set_size(obj, 48, 48);
                     lv_imagebutton_set_src(obj, LV_IMAGEBUTTON_STATE_RELEASED, NULL, &img_image_button_coloured_info, NULL);
@@ -299,14 +322,14 @@ void create_screen_screen_menu_1() {
                     add_style_style_image_button_hidden(obj);
                 }
                 {
-                    // Template_Button_26
+                    // Button_Do__Erase
                     lv_obj_t *obj = lv_imagebutton_create(parent_obj);
-                    objects.template_button_26 = obj;
+                    objects.button_do__erase = obj;
                     lv_obj_set_pos(obj, 0, 130);
                     lv_obj_set_size(obj, 48, 48);
-                    lv_imagebutton_set_src(obj, LV_IMAGEBUTTON_STATE_RELEASED, NULL, &img_button_blank, NULL);
-                    lv_imagebutton_set_src(obj, LV_IMAGEBUTTON_STATE_PRESSED, NULL, &img_button_blank, NULL);
-                    lv_obj_add_flag(obj, LV_OBJ_FLAG_HIDDEN);
+                    lv_imagebutton_set_src(obj, LV_IMAGEBUTTON_STATE_RELEASED, NULL, &img_image_button_coloured_erase, NULL);
+                    lv_imagebutton_set_src(obj, LV_IMAGEBUTTON_STATE_PRESSED, NULL, &img_image_button_coloured_erase, NULL);
+                    lv_obj_clear_flag(obj, LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SCROLL_WITH_ARROW|LV_OBJ_FLAG_SNAPPABLE);
                     add_style_style_image_button_hidden(obj);
                 }
                 {
@@ -343,24 +366,108 @@ void create_screen_screen_menu_1() {
                     add_style_style_image_button_hidden(obj);
                 }
                 {
-                    // Template_Button_30
+                    // Button_Do_Reboot
                     lv_obj_t *obj = lv_imagebutton_create(parent_obj);
-                    objects.template_button_30 = obj;
+                    objects.button_do_reboot = obj;
                     lv_obj_set_pos(obj, 256, 130);
                     lv_obj_set_size(obj, 48, 48);
                     lv_imagebutton_set_src(obj, LV_IMAGEBUTTON_STATE_RELEASED, NULL, &img_image_button_coloured_exit, NULL);
                     lv_imagebutton_set_src(obj, LV_IMAGEBUTTON_STATE_PRESSED, NULL, &img_image_button_coloured_exit, NULL);
-                    lv_obj_add_event_cb(obj, event_handler_cb_screen_menu_1_template_button_30, LV_EVENT_ALL, flowState);
+                    lv_obj_add_event_cb(obj, event_handler_cb_screen_initial_setup_button_do_reboot, LV_EVENT_ALL, flowState);
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SCROLL_WITH_ARROW|LV_OBJ_FLAG_SNAPPABLE);
+                }
+            }
+        }
+        {
+            lv_obj_t *obj = lv_obj_create(parent_obj);
+            objects.obj0 = obj;
+            lv_obj_set_pos(obj, 11, 53);
+            lv_obj_set_size(obj, 300, 143);
+            lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SCROLL_WITH_ARROW|LV_OBJ_FLAG_SNAPPABLE);
+            add_style_style_message_box(obj);
+            lv_obj_set_style_bg_color(obj, lv_color_hex(0xff606060), LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_border_color(obj, lv_color_hex(0xffd60909), LV_PART_MAIN | LV_STATE_DEFAULT);
+            {
+                lv_obj_t *parent_obj = obj;
+                {
+                    // Label_Message_Box_Confirm_Erase
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    objects.label_message_box_confirm_erase = obj;
+                    lv_obj_set_pos(obj, 0, 0);
+                    lv_obj_set_size(obj, LV_PCT(100), LV_PCT(40));
+                    lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SCROLL_WITH_ARROW|LV_OBJ_FLAG_SNAPPABLE);
+                    lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_text_color(obj, lv_color_hex(0xffd00707), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_align(obj, LV_ALIGN_TOP_MID, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_min_height(obj, 60, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text(obj, "Are you SURE you wish to continue as this will RESET to Factory Settings?");
+                }
+                {
+                    // Button_Message_Box_Confirm_Erase_Yes
+                    lv_obj_t *obj = lv_button_create(parent_obj);
+                    objects.button_message_box_confirm_erase_yes = obj;
+                    lv_obj_set_pos(obj, 8, 70);
+                    lv_obj_set_size(obj, LV_PCT(50), LV_PCT(100));
+                    lv_obj_add_event_cb(obj, event_handler_cb_screen_initial_setup_button_message_box_confirm_erase_yes, LV_EVENT_ALL, flowState);
+                    lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SCROLL_WITH_ARROW|LV_OBJ_FLAG_SNAPPABLE);
+                    lv_obj_set_style_radius(obj, 8, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_text_color(obj, lv_color_hex(0xffffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_color(obj, lv_color_hex(0xff23f25c), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_max_height(obj, 40, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_max_width(obj, 120, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_min_height(obj, 40, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    {
+                        lv_obj_t *parent_obj = obj;
+                        {
+                            // Button_Message_Box_Confirm_Erase_Text_Yes
+                            lv_obj_t *obj = lv_label_create(parent_obj);
+                            objects.button_message_box_confirm_erase_text_yes = obj;
+                            lv_obj_set_pos(obj, 0, 1);
+                            lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                            lv_label_set_long_mode(obj, LV_LABEL_LONG_SCROLL_CIRCULAR);
+                            lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                            lv_label_set_text(obj, "Yes");
+                        }
+                    }
+                }
+                {
+                    // Button_Message_Box_Confirm_Erase_No
+                    lv_obj_t *obj = lv_button_create(parent_obj);
+                    objects.button_message_box_confirm_erase_no = obj;
+                    lv_obj_set_pos(obj, 143, 70);
+                    lv_obj_set_size(obj, LV_PCT(50), LV_PCT(100));
+                    lv_obj_add_event_cb(obj, event_handler_cb_screen_initial_setup_button_message_box_confirm_erase_no, LV_EVENT_ALL, flowState);
+                    lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SCROLL_ON_FOCUS|LV_OBJ_FLAG_SCROLL_WITH_ARROW|LV_OBJ_FLAG_SNAPPABLE);
+                    lv_obj_add_state(obj, LV_STATE_FOCUSED|LV_STATE_CHECKED);
+                    lv_obj_set_style_radius(obj, 8, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_text_color(obj, lv_color_hex(0xffffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_color(obj, lv_color_hex(0xfff45d3c), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_margin_left(obj, 5, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_min_height(obj, 40, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_max_width(obj, 120, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_max_height(obj, 40, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    {
+                        lv_obj_t *parent_obj = obj;
+                        {
+                            // Button_Message_Box_Confirm_Erase_Text_No
+                            lv_obj_t *obj = lv_label_create(parent_obj);
+                            objects.button_message_box_confirm_erase_text_no = obj;
+                            lv_obj_set_pos(obj, 1, 1);
+                            lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                            lv_label_set_long_mode(obj, LV_LABEL_LONG_SCROLL_CIRCULAR);
+                            lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                            lv_label_set_text(obj, "No");
+                        }
+                    }
                 }
             }
         }
     }
     
-    tick_screen_screen_menu_1();
+    tick_screen_screen_initial_setup();
 }
 
-void tick_screen_screen_menu_1() {
+void tick_screen_screen_initial_setup() {
     void *flowState = getFlowState(0, 2);
     (void)flowState;
 }
@@ -640,16 +747,16 @@ void tick_screen_screen_buttons_template() {
 extern void add_style(lv_obj_t *obj, int32_t styleIndex);
 extern void remove_style(lv_obj_t *obj, int32_t styleIndex);
 
-static const char *screen_names[] = { "Screen_Start", "Screen_Boot_Animation", "Screen_Menu_1", "Screen_System_Error", "Screen_Buttons_Template" };
-static const char *object_names[] = { "screen_start", "screen_boot_animation", "screen_menu_1", "screen_system_error", "screen_buttons_template", "boot_animation_logo", "template_button_30", "image_button_return", "image_ear_25", "image_button_return_1", "label_page_header_1", "label_footer_1", "container_template_buttons_1", "template_button_16", "template_button_17", "template_button_18", "template_button_19", "template_button_20", "template_button_21", "template_button_22", "template_button_23", "template_button_24", "template_button_25", "template_button_26", "template_button_27", "template_button_28", "template_button_29", "label_dark_error_system", "label_dark_error_error", "label_dark_error_code", "image_ear_24_colured", "label_page_header", "label_footer", "container_template_buttons", "template_button_1", "template_button_2", "template_button_3", "template_button_4", "template_button_5", "template_button_6", "template_button_7", "template_button_8", "template_button_9", "template_button_10", "template_button_11", "template_button_12", "template_button_13", "template_button_14", "template_button_15" };
-static const char *style_names[] = { "Style_Light_Screen", "Style_Dark_Screen", "Style_Dark_Label_Error", "Style_Light_Label_Header", "Style_Light_Label_Footer", "Style_ImageButton_Hidden" };
+static const char *screen_names[] = { "Screen_Start", "Screen_Boot_Animation", "Screen_Initial_Setup", "Screen_System_Error", "Screen_Buttons_Template" };
+static const char *object_names[] = { "screen_start", "screen_boot_animation", "screen_initial_setup", "screen_system_error", "screen_buttons_template", "boot_animation_logo", "button_do_reboot", "button_message_box_confirm_erase_yes", "button_message_box_confirm_erase_no", "image_button_return", "image_ear_25", "image_button_return_1", "label_page_header_1", "label_footer_1", "container_template_buttons_1", "button_do_zap__number", "button_do_password", "button_do_info", "template_button_19", "template_button_20", "template_button_21", "template_button_22", "template_button_23", "template_button_24", "template_button_25", "button_do__erase", "template_button_27", "template_button_28", "template_button_29", "obj0", "label_message_box_confirm_erase", "button_message_box_confirm_erase_text_yes", "button_message_box_confirm_erase_text_no", "label_dark_error_system", "label_dark_error_error", "label_dark_error_code", "image_ear_24_colured", "label_page_header", "label_footer", "container_template_buttons", "template_button_1", "template_button_2", "template_button_3", "template_button_4", "template_button_5", "template_button_6", "template_button_7", "template_button_8", "template_button_9", "template_button_10", "template_button_11", "template_button_12", "template_button_13", "template_button_14", "template_button_15" };
+static const char *style_names[] = { "Style_Light_Screen", "Style_Dark_Screen", "Style_Dark_Label_Error", "Style_Light_Label_Header", "Style_Light_Label_Footer", "Style_ImageButton_Hidden", "Style_Message_Box" };
 
 
 typedef void (*tick_screen_func_t)();
 tick_screen_func_t tick_screen_funcs[] = {
     tick_screen_screen_start,
     tick_screen_screen_boot_animation,
-    tick_screen_screen_menu_1,
+    tick_screen_screen_initial_setup,
     tick_screen_screen_system_error,
     tick_screen_screen_buttons_template,
 };
@@ -673,7 +780,7 @@ void create_screens() {
     
     create_screen_screen_start();
     create_screen_screen_boot_animation();
-    create_screen_screen_menu_1();
+    create_screen_screen_initial_setup();
     create_screen_screen_system_error();
     create_screen_screen_buttons_template();
 }

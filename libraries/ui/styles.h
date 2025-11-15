@@ -36,6 +36,10 @@ void remove_style_style_light_label_footer(lv_obj_t *obj);
 void add_style_style_image_button_hidden(lv_obj_t *obj);
 void remove_style_style_image_button_hidden(lv_obj_t *obj);
 
+// Style: Style_Message_Box
+void add_style_style_message_box(lv_obj_t *obj);
+void remove_style_style_message_box(lv_obj_t *obj);
+
 
 
 #ifdef __cplusplus

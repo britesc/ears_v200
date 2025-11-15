@@ -1,6 +1,6 @@
 #include "images.h"
 
-const ext_img_desc_t images[20] = {
+const ext_img_desc_t images[21] = {
     { "Boot_Ears_01", &img_boot_ears_01 },
     { "Boot_Ears_02", &img_boot_ears_02 },
     { "Boot_Ears_03", &img_boot_ears_03 },
@@ -21,4 +21,5 @@ const ext_img_desc_t images[20] = {
     { "Image_Button_Coloured_Key", &img_image_button_coloured_key },
     { "Image_Button_Coloured_Info", &img_image_button_coloured_info },
     { "Image_Button_Coloured_Exit", &img_image_button_coloured_exit },
+    { "Image_Button_Coloured_Erase", &img_image_button_coloured_erase },
 };

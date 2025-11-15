@@ -1,0 +1,4 @@
+xxh32	KEYWORD2
+Xxh32stream KEYWORD1
+feed    KEYWORD2
+hash    KEYWORD2

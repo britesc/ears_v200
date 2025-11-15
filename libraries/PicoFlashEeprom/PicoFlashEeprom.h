@@ -3,6 +3,8 @@
 
 #include <Arduino.h>
 #include <EEPROM.h>
+#include <eeprom_defines.h>
+#include <XxHash_arduino.h>
 
 
 #define PICO_FLASH_EEPROM_SIZE 512
@@ -20,21 +22,35 @@ public:
     };
 
     // Const
-    const uint8_t LENGTH_ZAP_NUMBER = 6;
-    const uint8_t LENGTH_ZAP_NUMBER_BUFFER = LENGTH_ZAP_NUMBER + 1;
-    const uint8_t START_ZAP_NUMBER = 2;
+//    const uint8_t LENGTH_ZAP_NUMBER = 6;
+//    const uint8_t LENGTH_ZAP_NUMBER_BUFFER = LENGTH_ZAP_NUMBER + 1;
+//    const uint8_t START_ZAP_NUMBER = 2;
+  	
+//		const uint8_t START_PASSWORD_HASH = START_ZAP_NUMBER + LENGTH_ZAP_NUMBER;
+//    const uint8_t LENGTH_PASSWORD_HASH = 9;
+//		const uint8_t LENGTH_PASSWORD_HASH_BUFFER = LENGTH_PASSWORD_HASH + 1;
 
+    
     // Constructor
     PicoFlashEeprom(uint8_t size);
 
     // Public methods
-    void begin();
-    bool isEepromValid();
-    void initializeEeprom();
+    void  begin();
+    bool  isEepromValid();
+    void  initializeEeprom();
+    
+    // Zap Number
     char* getZapNumber();
-    bool isZapNumberValid(const char *str);
-    void writeZapNumber(const char *str);
-		
+    bool  isZapNumberValid(const char *str);
+    void  writeZapNumber(const char *str);
+
+    // Password Hash
+    char* getPasswordHash();
+    bool  isPasswordHashValid(const char *str);
+    char* createPasswordHash(const char *str);
+    bool  comparePasswordHashValid(const char *str, const char *hash);
+    void  writePasswordHash(const char *str);
+    		
     // Logging configuration
     static void setLogger(Stream* stream);
     static void setLogLevel(LogLevel level);
@@ -52,7 +68,5 @@ private:
     // Internal logging function
     static void log(LogLevel level, const __FlashStringHelper* msg);
 };
-
-
 
 #endif // PICO_FLASH_EEPROM_H

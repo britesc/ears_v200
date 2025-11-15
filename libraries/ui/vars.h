@@ -24,6 +24,8 @@ extern const char *get_var_global_variable_error_code();
 extern void set_var_global_variable_error_code(const char *value);
 extern bool get_var_global_variable_has_valid_zap_number();
 extern void set_var_global_variable_has_valid_zap_number(bool value);
+extern bool get_var_global_variable_has_valid_password();
+extern void set_var_global_variable_has_valid_password(bool value);
 
 
 #ifdef __cplusplus

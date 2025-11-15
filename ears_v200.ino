@@ -34,7 +34,7 @@
  ******************************************************************************/
 #define APP_VERSION_MAJOR "0"
 #define APP_VERSION_MINOR "0"
-#define APP_VERSION_PATCH "250"
+#define APP_VERSION_PATCH "220"
 #define APP_VERSION_BUILD "(Dev)"
 #define APP_VERSION       APP_VERSION_MAJOR + "." + APP_VERSION_MINOR + "." + APP_VERSION_PATCH + " " + APP_VERSION_BUILD 
 
@@ -100,11 +100,11 @@ PicoFlashEeprom PFE((uint8_t)PICO_FLASH_EEPROM_SIZE);
  ******************************************************************************/
 
 /*******************************************************************************
- * Start of core functions
+ * Start of hash functions
  ******************************************************************************/
-// #include <core_functions.h>
+
 /*******************************************************************************
- * End of core functions
+ * End of hash functions
  ******************************************************************************/
 
 // /*******************************************************************************
@@ -185,24 +185,24 @@ void loop() {
 
 void setup1() {
   // TODO
-   set_var_global_variable_has_valid_zap_number(false);  
-  // PFE.begin();
-  // if(!PFE.isEepromValid()) 
-  // {
-  //   PFE.initializeEeprom();
-  // }
-  // if(PFE.isZapNumberValid(PFE.getZapNumber()))
-  // {
-  //   // set to true for testing
-  //   set_var_has_valid_zap_number(true);
-  //   D_SerialPrint("Zap IS Valid");
-  // }
-  // else
-  // {   
-  //   set_var_has_valid_zap_number(false);
-  //   D_SerialPrint("Zap NOT Valid");
-  // }      
-  // D_SerialPrintln(PFE.getZapNumber());
+  set_var_global_variable_has_valid_zap_number(false);  
+  PFE.begin();
+  if(!PFE.isEepromValid()) 
+  {
+    PFE.initializeEeprom();
+  }
+  if(PFE.isZapNumberValid(PFE.getZapNumber()))
+  {
+    // set to true for testing
+    set_var_global_variable_has_valid_zap_number(true);
+    D_SerialPrint("Zap IS Valid");
+  }
+  else
+  {   
+    set_var_global_variable_has_valid_zap_number(false);
+    D_SerialPrint("Zap NOT Valid");
+  }      
+  D_SerialPrintln(PFE.getZapNumber());
 }
 
 void loop1() {

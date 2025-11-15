@@ -1,5 +1,8 @@
 #include "PicoFlashEeprom.h"
 
+/***********************************************************************************
+ * Logging
+ **********************************************************************************/
 
 // Static member initialisation
 Stream* PicoFlashEeprom::_logStream = &Serial;
@@ -11,13 +14,18 @@ bool PicoFlashEeprom::_loggingEnabled =
 #endif
 PicoFlashEeprom::LogLevel PicoFlashEeprom::_logLevel = LOG_DEBUG;
 
+
+/***********************************************************************************
+ * Eeprom
+ **********************************************************************************/
+
 // Constructor
 PicoFlashEeprom::PicoFlashEeprom(uint8_t size) : _size(size) {}
 //PicoFlashEeprom::~PicoFlashEeprom();
 
 void PicoFlashEeprom::begin() {
     EEPROM.begin(_size);
-    log(LOG_INFO, F("Started Pico Flash Eeprom"));
+    log(LOG_INFO, F("Started Flash Eeprom"));
 }
 
 bool PicoFlashEeprom::isEepromValid() {
@@ -35,11 +43,15 @@ void PicoFlashEeprom::initializeEeprom() {
     }
     EEPROM.write(_eeprom_address, 74);
     EEPROM.write(_eeprom_address + 1, 66);
-    log(LOG_INFO, F("Initialised Pico Flash Eeprom"));
+    log(LOG_INFO, F("Initialised Flash Eeprom"));
 }
 
+/***********************************************************************************
+ * Zap Number
+ **********************************************************************************/
+
 char*  PicoFlashEeprom::getZapNumber() {
-    static char buffer[7];  // 6 bytes + null terminator
+    static char buffer[LENGTH_ZAP_NUMBER_BUFFER];  // 6 bytes + null terminator
 
     for (int i = 0; i < LENGTH_ZAP_NUMBER; i++) {
         buffer[i] = (char)EEPROM.read(_eeprom_address + START_ZAP_NUMBER + i);
@@ -67,20 +79,68 @@ bool PicoFlashEeprom::isZapNumberValid(const char *str) {
       log(LOG_INFO, F("Zap Number NOT 4 Numeric Characters"));
       return false;
     }
-
   }
     log(LOG_INFO, F("Zap Number IS Valid"));
     return true;
-
 }
 
 void PicoFlashEeprom::writeZapNumber(const char *str) {
     for (int i = 0; i < strlen(str); i++) {
       EEPROM.write(_eeprom_address + START_ZAP_NUMBER + i, isupper(str[i]));
     }
-    log(LOG_INFO, F("Written Zap Pico Flash Eeprom"));
+    log(LOG_INFO, F("Written Zap Number to Eeprom"));
 }
 
+/***********************************************************************************
+ * Password Hash
+ **********************************************************************************/
+
+char*  PicoFlashEeprom::getPasswordHash() {
+    static char buffer[LENGTH_PASSWORD_HASH_BUFFER];  // 9 bytes + null terminator
+
+    for (int i = 0; i < LENGTH_PASSWORD_HASH; i++) {
+        buffer[i] = (char)EEPROM.read(_eeprom_address + START_PASSWORD_HASH + i);
+    }
+    buffer[LENGTH_PASSWORD_HASH] = '\0';   // ensure string is null-terminated
+    log(LOG_INFO, F("Got Stored Password Hash"));
+    return buffer;
+}
+
+bool PicoFlashEeprom::isPasswordHashValid(const char *str) {
+  // Must be exactly 9 characters
+  if (strlen(str) != LENGTH_PASSWORD_HASH) {
+    log(LOG_INFO, F("Password Hash NOT Required Number of Characters"));
+    return false;
+  }
+  log(LOG_INFO, F("Password Hash IS Valid"));
+  return true;
+}
+
+char*  PicoFlashEeprom::createPasswordHash(const char *str) {
+	static char buffer[LENGTH_PASSWORD_HASH_BUFFER];  // 9 bytes + null terminator
+  xxh32(buffer, str);  
+  log(LOG_INFO, F("Created Password Hash"));    
+  return buffer;
+}
+
+bool PicoFlashEeprom::comparePasswordHashValid(const char *str, const char *hash) {
+	if (!strcmp(str, hash)) {
+  	log(LOG_INFO, F("Password Hash Compare FAILED"));
+  	return false;	
+	}		
+  log(LOG_INFO, F("Password Hash Compare OK"));
+  return true;
+}
+
+void PicoFlashEeprom::writePasswordHash(const char *str) {
+    for (int i = 0; i < strlen(str); i++) {
+      EEPROM.write(_eeprom_address + START_PASSWORD_HASH + i, isupper(str[i]));
+    }
+    log(LOG_INFO, F("Written Password Hash to Eeprom"));
+}
+/***********************************************************************************
+ * Logging
+ **********************************************************************************/
 
 void PicoFlashEeprom::setLogger(Stream* stream) {
     _logStream = stream;
