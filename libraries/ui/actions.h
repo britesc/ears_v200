@@ -9,7 +9,7 @@ extern "C" {
 
 extern void action_action_reboot_system(lv_event_t * e);
 extern void action_action_button_message_box_confirm_erase_yes(lv_event_t * e);
-extern void action_action_button_message_box_confirm_erase_no(lv_event_t * e);
+extern void action_action_get_serial_number(lv_event_t * e);
 
 
 #ifdef __cplusplus

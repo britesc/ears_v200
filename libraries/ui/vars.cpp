@@ -1,18 +1,23 @@
-#include <stdio.h>
-#include <string.h>
+#include "vars.h"
+
 #include <lvgl.h>
 
-#include "vars.h"
+
 #include "screens.h"
 #include "structs.h"
 #include "ui.h"
 
 char global_variable_error_code[100] = { 0 };
-bool global_variable_has_valid_zap_number = false;
-bool global_variable_has_valid_password = false;
+bool global_variable_has_valid_zap_number;
+bool global_variable_has_valid_password;
+char zap_number_state_text[100] = { 0 };
+
 
 void init_vars() {
-	global_variable_has_valid_zap_number = false;
+	set_var_global_variable_error_code("0000");
+	set_var_zap_number_state_text("Not Set");
+	set_var_global_variable_has_valid_zap_number(false);
+	set_var_global_variable_has_valid_password(false);	
 }
 
 void tick_vars() {
@@ -47,3 +52,11 @@ void set_var_global_variable_has_valid_password(bool value) {
     global_variable_has_valid_password = value;
 }
 	
+const char *get_var_zap_number_state_text() {
+    return zap_number_state_text;
+}
+
+void set_var_zap_number_state_text(const char *value) {
+    strncpy(zap_number_state_text, value, sizeof(zap_number_state_text) / sizeof(char));
+    zap_number_state_text[sizeof(zap_number_state_text) / sizeof(char) - 1] = 0;
+}

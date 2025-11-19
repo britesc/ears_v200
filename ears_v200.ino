@@ -34,7 +34,7 @@
  ******************************************************************************/
 #define APP_VERSION_MAJOR "0"
 #define APP_VERSION_MINOR "0"
-#define APP_VERSION_PATCH "220"
+#define APP_VERSION_PATCH "230"
 #define APP_VERSION_BUILD "(Dev)"
 #define APP_VERSION       APP_VERSION_MAJOR + "." + APP_VERSION_MINOR + "." + APP_VERSION_PATCH + " " + APP_VERSION_BUILD 
 
@@ -157,12 +157,14 @@ void setup(void) {
 #if LV_USE_LOG != 0
   lv_log_register_print_cb(my_print);
 #endif
-  /* Initialise DIsplay BUffer */
+  /* Initialise Display Buffer */
   init_buffer();
   /* Initialise Touch Input*/
   init_touch();
   /* Initialise UI */
   ui_init();
+ /* Initialise LVGL Variables */
+  //init_vars();
 
   D_SerialPrintln("Setup done");
 

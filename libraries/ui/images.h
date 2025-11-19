@@ -25,9 +25,16 @@ extern const lv_img_dsc_t img_return_24_coloured;
 extern const lv_img_dsc_t img_button_blank;
 extern const lv_img_dsc_t img_image_button_coloured_zap;
 extern const lv_img_dsc_t img_image_button_coloured_key;
-extern const lv_img_dsc_t img_image_button_coloured_info;
 extern const lv_img_dsc_t img_image_button_coloured_exit;
 extern const lv_img_dsc_t img_image_button_coloured_erase;
+extern const lv_img_dsc_t img_image_button_coloured_info;
+extern const lv_img_dsc_t img_image_dialog_coloured_warn;
+extern const lv_img_dsc_t img_image_dialog_coloured_alert;
+extern const lv_img_dsc_t img_image_dialog_coloured_info;
+extern const lv_img_dsc_t img_image_dialog_coloured_help;
+extern const lv_img_dsc_t img_image_dialog_coloured_callout;
+extern const lv_img_dsc_t img_image_button_grey_key;
+extern const lv_img_dsc_t img_image_button_grey_zap;
 
 #ifndef EXT_IMG_DESC_T
 #define EXT_IMG_DESC_T
@@ -37,7 +44,7 @@ typedef struct _ext_img_desc_t {
 } ext_img_desc_t;
 #endif
 
-extern const ext_img_desc_t images[21];
+extern const ext_img_desc_t images[28];
 
 
 #ifdef __cplusplus

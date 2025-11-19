@@ -10,7 +10,10 @@ extern "C" {
 
 // enum declarations
 
-
+typedef enum {
+    Enum_No_Yes_No = 0,
+    Enum_No_Yes_Yes = 1
+} Enum_No_Yes;
 
 // Flow global variables
 

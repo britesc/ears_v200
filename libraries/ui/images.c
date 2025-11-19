@@ -1,6 +1,6 @@
 #include "images.h"
 
-const ext_img_desc_t images[21] = {
+const ext_img_desc_t images[28] = {
     { "Boot_Ears_01", &img_boot_ears_01 },
     { "Boot_Ears_02", &img_boot_ears_02 },
     { "Boot_Ears_03", &img_boot_ears_03 },
@@ -19,7 +19,14 @@ const ext_img_desc_t images[21] = {
     { "Button_Blank", &img_button_blank },
     { "Image_Button_Coloured_Zap", &img_image_button_coloured_zap },
     { "Image_Button_Coloured_Key", &img_image_button_coloured_key },
-    { "Image_Button_Coloured_Info", &img_image_button_coloured_info },
     { "Image_Button_Coloured_Exit", &img_image_button_coloured_exit },
     { "Image_Button_Coloured_Erase", &img_image_button_coloured_erase },
+    { "Image_Button_Coloured_Info", &img_image_button_coloured_info },
+    { "Image_Dialog_Coloured_Warn", &img_image_dialog_coloured_warn },
+    { "Image_Dialog_Coloured_Alert", &img_image_dialog_coloured_alert },
+    { "Image_Dialog_Coloured_Info", &img_image_dialog_coloured_info },
+    { "Image_Dialog_Coloured_Help", &img_image_dialog_coloured_help },
+    { "Image_Dialog_Coloured_Callout", &img_image_dialog_coloured_callout },
+    { "Image_Button_Grey_Key", &img_image_button_grey_key },
+    { "Image_Button_Grey_Zap", &img_image_button_grey_zap },
 };

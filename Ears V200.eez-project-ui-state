@@ -1,10 +1,10 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Ears V200.eez-project]:/userPages/1",
-    "selectedActionObject": "[Ears V200.eez-project]:/actions/0",
-    "selectedGlobalVariableObject": "[Ears V200.eez-project]:/variables/globalVariables/1",
-    "selectedStyleObject": "[Ears V200.eez-project]:/lvglStyles/styles/5",
-    "selectedBitmapObject": "[Ears V200.eez-project]:/bitmaps/15",
+    "selectedUserPageObject": "[Ears V200.eez-project]:/userPages/6",
+    "selectedActionObject": "[Ears V200.eez-project]:/actions/1",
+    "selectedGlobalVariableObject": "[Ears V200.eez-project]:/variables/globalVariables/3",
+    "selectedStyleObject": "[Ears V200.eez-project]:/lvglStyles/styles/7",
+    "selectedBitmapObject": "[Ears V200.eez-project]:/bitmaps/26",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
     }
@@ -140,13 +140,12 @@
             {
               "type": "row",
               "id": "#8bfd77e2-c8ea-4917-b5da-8d5754a5528a",
-              "weight": 15,
+              "weight": 26.324464640058306,
               "children": [
                 {
                   "type": "tabset",
                   "id": "#d0ed2d7c-f924-4371-a0b4-a30cca7207f9",
                   "weight": 1,
-                  "selected": 2,
                   "enableClose": false,
                   "children": [
                     {
@@ -205,24 +204,26 @@
                       "enableClose": false,
                       "icon": "svg:variable"
                     }
-                  ]
+                  ],
+                  "active": true
                 }
               ]
             },
             {
               "type": "tabset",
               "id": "EDITORS",
-              "weight": 52.76128466596308,
+              "weight": 40.709146123045535,
+              "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
-                  "id": "#6a8c1009-e560-430a-93c9-9d5487b5323e",
-                  "name": "Action_Reboot_System",
+                  "id": "#fbe92e81-895f-4a6e-b3b3-6b49ef932a81",
+                  "name": "Action_Button_Message_Box_Confirm_Erase_Yes",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[Ears V200.eez-project]:/actions/0",
+                    "objectPath": "[Ears V200.eez-project]:/actions/1",
                     "permanent": false
                   },
                   "icon": "material:code"
@@ -230,21 +231,20 @@
                 {
                   "type": "tab",
                   "id": "#ce054290-f764-4e14-b2c8-bb148196f0fc",
-                  "name": "Screen_Boot_Animation",
+                  "name": "Screen_Info_1",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[Ears V200.eez-project]:/userPages/1",
+                    "objectPath": "[Ears V200.eez-project]:/userPages/6",
                     "permanent": false
                   },
                   "icon": "svg:page"
                 }
-              ],
-              "active": true
+              ]
             },
             {
               "type": "row",
               "id": "#5f22f7e3-a42b-4890-91b2-43af9fff604c",
-              "weight": 32.23871533403692,
+              "weight": 32.96638923689614,
               "children": [
                 {
                   "type": "tabset",
@@ -488,10 +488,22 @@
               "type": "tabset",
               "id": "RUNTIME-EDITORS",
               "weight": 1,
-              "selected": -1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
-              "children": []
+              "children": [
+                {
+                  "type": "tab",
+                  "id": "#48caf004-d591-4259-b9ed-0dcd1667749b",
+                  "name": "Screen_Boot_Animation",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[Ears V200.eez-project]:/userPages/1",
+                    "permanent": false
+                  },
+                  "icon": "svg:page"
+                }
+              ],
+              "active": true
             },
             {
               "type": "row",
@@ -1040,13 +1052,11 @@
       "0": {},
       "1": {},
       "2": {},
-      "3": {
-        "$selected": true
-      },
-      "4": {
-        "$selected": true
-      },
-      "5": {
+      "3": {},
+      "4": {},
+      "5": {},
+      "6": {},
+      "7": {
         "$selected": true
       }
     },
@@ -1054,12 +1064,17 @@
       "selection": {
         "0": {
           "0": {}
-        }
+        },
+        "1": {
+          "$selected": true
+        },
+        "3": {},
+        "4": {}
       },
       "transform": {
         "translate": {
-          "x": -115.30584716796875,
-          "y": -112.11280001012335
+          "x": -237.99557495117188,
+          "y": -429.3540414652015
         },
         "scale": 1
       },
@@ -1073,16 +1088,17 @@
     "[Ears V200.eez-project]:/userPages/2[flow-state]": {
       "selection": {
         "0": {
-          "4": {}
+          "2": {},
+          "4": {},
+          "5": {}
         },
-        "1": {
-          "$selected": true
-        }
+        "1": {},
+        "8": {}
       },
       "transform": {
         "translate": {
-          "x": -160,
-          "y": -119.1236572265625
+          "x": -293.20611572265625,
+          "y": -232.1735757669593
         },
         "scale": 1
       },
@@ -1139,6 +1155,71 @@
         },
         "scale": 1
       }
+    },
+    "[Ears V200.eez-project]:/actions/1[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": 0,
+          "y": 1424.0787200778927
+        },
+        "scale": 1
+      }
+    },
+    "[Ears V200.eez-project]:/actions/2[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": 0,
+          "y": 0
+        },
+        "scale": 1
+      }
+    },
+    "[Ears V200.eez-project]:/userPages/5[flow-state]": {
+      "selection": {
+        "0": {
+          "1": {
+            "$selected": true
+          }
+        }
+      },
+      "transform": {
+        "translate": {
+          "x": -159.1236572265625,
+          "y": -120
+        },
+        "scale": 1
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[Ears V200.eez-project]:/userPages/6[flow-state]": {
+      "selection": {
+        "0": {
+          "2": {},
+          "7": {
+            "$selected": true
+          }
+        }
+      },
+      "transform": {
+        "translate": {
+          "x": -159.1236572265625,
+          "y": -120
+        },
+        "scale": 1
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
     }
   },
   "activeOutputSection": 0,
@@ -1156,7 +1237,9 @@
   "selectedStylePropertyName": "",
   "lvglPart": "MAIN",
   "lvglState": "DEFAULT",
-  "lvglExpandedPropertiesGroup": [],
+  "lvglExpandedPropertiesGroup": [
+    "POSITION AND SIZE"
+  ],
   "showInactiveFlowsInDebugger": true,
   "globalFlowZoom": true,
   "flowZoom": 1,
