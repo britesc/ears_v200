@@ -93,7 +93,7 @@ typedef struct _objects_t {
     lv_obj_t *label_static_zap_created;
     lv_obj_t *label_static_password_created;
     lv_obj_t *label_dynamic_zap_number_state;
-    lv_obj_t *label_dynamic_zap_number_state_1;
+    lv_obj_t *label_dynamic_serial;
     lv_obj_t *label_dynamic_password_state;
 } objects_t;
 

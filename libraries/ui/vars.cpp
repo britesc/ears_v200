@@ -10,14 +10,15 @@
 char global_variable_error_code[100] = { 0 };
 bool global_variable_has_valid_zap_number;
 bool global_variable_has_valid_password;
-char zap_number_state_text[100] = { 0 };
+char global_variable_cpu_id[100] = { 0 };
+
 
 
 void init_vars() {
 	set_var_global_variable_error_code("0000");
-	set_var_zap_number_state_text("Not Set");
 	set_var_global_variable_has_valid_zap_number(false);
-	set_var_global_variable_has_valid_password(false);	
+	set_var_global_variable_has_valid_password(false);
+	set_var_global_variable_cpu_id("00000000");
 }
 
 void tick_vars() {
@@ -52,11 +53,11 @@ void set_var_global_variable_has_valid_password(bool value) {
     global_variable_has_valid_password = value;
 }
 	
-const char *get_var_zap_number_state_text() {
-    return zap_number_state_text;
+const char *get_var_global_variable_cpu_id() {
+    return global_variable_cpu_id;
 }
 
-void set_var_zap_number_state_text(const char *value) {
-    strncpy(zap_number_state_text, value, sizeof(zap_number_state_text) / sizeof(char));
-    zap_number_state_text[sizeof(zap_number_state_text) / sizeof(char) - 1] = 0;
+void set_var_global_variable_cpu_id(const char *value) {
+    strncpy(global_variable_cpu_id, value, sizeof(global_variable_cpu_id) / sizeof(char));
+    global_variable_cpu_id[sizeof(global_variable_cpu_id) / sizeof(char) - 1] = 0;
 }

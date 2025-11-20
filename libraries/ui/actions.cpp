@@ -3,6 +3,7 @@
 #include "actions.h"
 //#include "PicoFlashEeprom.h"
 #include "vars.h"
+#include "screens.h"
 #include <D_Serial_Debug.h>
 #include "PicoFlashEeprom.h"
 
@@ -20,6 +21,16 @@ void action_action_button_message_box_confirm_erase_yes(lv_event_t * e) {
 	PFE.initializeEeprom();
 }
 
-void action_action_get_serial_number(lv_event_t *e) {
-    // TODO: Implement action action_get_serial_number here
+void action_action_get_cpu_id(lv_event_t *e) {
+    // TODO: Implement action action_get_cpu_id here
+	uint8_t id[16];
+	rp2040.cpuid();
+
+	char buf[64];
+	int pos = 0;
+	
+	for (int i = 0; i < 16; i++) {
+    pos += snprintf(buf + pos, sizeof(buf) - pos, "%02X", id[i]);
+	}
+	set_var_global_variable_cpu_id(buf);    
 }

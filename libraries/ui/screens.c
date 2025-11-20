@@ -1094,15 +1094,15 @@ void create_screen_screen_info_1() {
             lv_label_set_text(obj, "Not Set");
         }
         {
-            // Label_Dynamic_Zap_Number_State_1
+            // Label_Dynamic_Serial
             lv_obj_t *obj = lv_label_create(parent_obj);
-            objects.label_dynamic_zap_number_state_1 = obj;
+            objects.label_dynamic_serial = obj;
             lv_obj_set_pos(obj, 187, 40);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_label_set_long_mode(obj, LV_LABEL_LONG_CLIP);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SCROLL_WITH_ARROW|LV_OBJ_FLAG_SNAPPABLE);
             add_style_style_light_label_normal(obj);
-            lv_label_set_text(obj, "Not Set");
+            lv_label_set_text(obj, "");
         }
         {
             // Label_Dynamic_Password_State
@@ -1123,6 +1123,15 @@ void create_screen_screen_info_1() {
 void tick_screen_screen_info_1() {
     void *flowState = getFlowState(0, 6);
     (void)flowState;
+    {
+        const char *new_val = evalTextProperty(flowState, 9, 3, "Failed to evaluate Text in Label widget");
+        const char *cur_val = lv_label_get_text(objects.label_dynamic_serial);
+        if (strcmp(new_val, cur_val) != 0) {
+            tick_value_change_obj = objects.label_dynamic_serial;
+            lv_label_set_text(objects.label_dynamic_serial, new_val);
+            tick_value_change_obj = NULL;
+        }
+    }
 }
 
 
@@ -1130,7 +1139,7 @@ extern void add_style(lv_obj_t *obj, int32_t styleIndex);
 extern void remove_style(lv_obj_t *obj, int32_t styleIndex);
 
 static const char *screen_names[] = { "Screen_Start", "Screen_Boot_Animation", "Screen_Initial_Setup", "Screen_System_Error", "Screen_Buttons_Template", "Screen_Main", "Screen_Info_1" };
-static const char *object_names[] = { "screen_start", "screen_boot_animation", "screen_initial_setup", "screen_system_error", "screen_buttons_template", "screen_main", "screen_info_1", "boot_animation_logo", "button_do_info", "button_do__erase", "button_do_reboot", "button_message_box_confirm_erase_yes", "button_message_box_confirm_erase_no", "image_button_return", "image_button_return_2", "image_ear_25", "image_button_return_1", "label_page_header_initial_setup_screen", "label_page_footer_initial_setup_screen", "container_template_buttons_1", "button_do_zap__number", "button_do_password", "template_button_19", "template_button_20", "template_button_21", "template_button_22", "template_button_23", "template_button_24", "template_button_25", "template_button_27", "template_button_28", "template_button_29", "panel_message_box_erase", "label_message_box_confirm_erase", "obj0", "button_message_box_confirm_erase_text_yes", "button_message_box_confirm_erase_text_no", "label_dark_error_system", "label_dark_error_error", "label_dark_error_code", "image_ear_24_colured", "label_page_header", "label_footer", "container_template_buttons", "template_button_1", "template_button_2", "template_button_3", "template_button_4", "template_button_5", "template_button_6", "template_button_7", "template_button_8", "template_button_9", "template_button_10", "template_button_11", "template_button_12", "template_button_13", "template_button_14", "template_button_15", "image_ear_26", "label_page_header_main_screen", "label_page_footer_main_screen", "container_template_buttons_2", "template_button_16", "template_button_17", "template_button_18", "template_button_26", "template_button_30", "template_button_31", "template_button_32", "template_button_33", "template_button_34", "template_button_35", "template_button_36", "template_button_37", "template_button_38", "template_button_39", "template_button_40", "image_ear_27", "label_page_header_1", "label_footer_1", "label_static_serial_number", "label_static_zap_created", "label_static_password_created", "label_dynamic_zap_number_state", "label_dynamic_zap_number_state_1", "label_dynamic_password_state" };
+static const char *object_names[] = { "screen_start", "screen_boot_animation", "screen_initial_setup", "screen_system_error", "screen_buttons_template", "screen_main", "screen_info_1", "boot_animation_logo", "button_do_info", "button_do__erase", "button_do_reboot", "button_message_box_confirm_erase_yes", "button_message_box_confirm_erase_no", "image_button_return", "image_button_return_2", "image_ear_25", "image_button_return_1", "label_page_header_initial_setup_screen", "label_page_footer_initial_setup_screen", "container_template_buttons_1", "button_do_zap__number", "button_do_password", "template_button_19", "template_button_20", "template_button_21", "template_button_22", "template_button_23", "template_button_24", "template_button_25", "template_button_27", "template_button_28", "template_button_29", "panel_message_box_erase", "label_message_box_confirm_erase", "obj0", "button_message_box_confirm_erase_text_yes", "button_message_box_confirm_erase_text_no", "label_dark_error_system", "label_dark_error_error", "label_dark_error_code", "image_ear_24_colured", "label_page_header", "label_footer", "container_template_buttons", "template_button_1", "template_button_2", "template_button_3", "template_button_4", "template_button_5", "template_button_6", "template_button_7", "template_button_8", "template_button_9", "template_button_10", "template_button_11", "template_button_12", "template_button_13", "template_button_14", "template_button_15", "image_ear_26", "label_page_header_main_screen", "label_page_footer_main_screen", "container_template_buttons_2", "template_button_16", "template_button_17", "template_button_18", "template_button_26", "template_button_30", "template_button_31", "template_button_32", "template_button_33", "template_button_34", "template_button_35", "template_button_36", "template_button_37", "template_button_38", "template_button_39", "template_button_40", "image_ear_27", "label_page_header_1", "label_footer_1", "label_static_serial_number", "label_static_zap_created", "label_static_password_created", "label_dynamic_zap_number_state", "label_dynamic_serial", "label_dynamic_password_state" };
 static const char *style_names[] = { "Style_Light_Screen", "Style_Dark_Screen", "Style_Dark_Label_Error", "Style_Light_Label_Header", "Style_Light_Label_Footer", "Style_ImageButton_Hidden", "Style_Message_Box", "Style_Light_Label_Normal" };
 
 
