@@ -11,7 +11,7 @@ char global_variable_error_code[100] = { 0 };
 bool global_variable_has_valid_zap_number;
 bool global_variable_has_valid_password;
 char global_variable_cpu_id[100] = { 0 };
-
+char global_text_area_zap_number[100] = { 0 };
 
 
 void init_vars() {
@@ -19,6 +19,7 @@ void init_vars() {
 	set_var_global_variable_has_valid_zap_number(false);
 	set_var_global_variable_has_valid_password(false);
 	set_var_global_variable_cpu_id("00000000");
+	set_var_global_text_area_zap_number("");
 }
 
 void tick_vars() {
@@ -60,4 +61,13 @@ const char *get_var_global_variable_cpu_id() {
 void set_var_global_variable_cpu_id(const char *value) {
     strncpy(global_variable_cpu_id, value, sizeof(global_variable_cpu_id) / sizeof(char));
     global_variable_cpu_id[sizeof(global_variable_cpu_id) / sizeof(char) - 1] = 0;
+}
+
+const char *get_var_global_text_area_zap_number() {
+    return global_text_area_zap_number;
+}
+
+void set_var_global_text_area_zap_number(const char *value) {
+    strncpy(global_text_area_zap_number, value, sizeof(global_text_area_zap_number) / sizeof(char));
+    global_text_area_zap_number[sizeof(global_text_area_zap_number) / sizeof(char) - 1] = 0;
 }

@@ -34,3 +34,10 @@ void action_action_get_cpu_id(lv_event_t *e) {
 	}
 	set_var_global_variable_cpu_id(buf);    
 }
+
+void action_action_update_zap_eeprom(lv_event_t * e) {
+    // TODO: Implement action update_zap_eeprom here
+	PicoFlashEeprom PFE((uint8_t)PICO_FLASH_EEPROM_SIZE);
+  PFE.begin();
+  PFE.writeZapNumber(get_var_global_text_area_zap_number());
+}

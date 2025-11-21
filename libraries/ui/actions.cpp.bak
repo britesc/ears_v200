@@ -32,5 +32,12 @@ void action_action_get_cpu_id(lv_event_t *e) {
 	for (int i = 0; i < 16; i++) {
     pos += snprintf(buf + pos, sizeof(buf) - pos, "%02X", id[i]);
 	}
-	eez_var_set_string(Global_Variable_CPU_ID, buf);    
+	set_var_global_variable_cpu_id(buf);    
+}
+
+void action_action_update_zap_eeprom(lv_event_t * e) {
+    // TODO: Implement action update_zap_eeprom here
+	PicoFlashEeprom PFE((uint8_t)PICO_FLASH_EEPROM_SIZE);
+  PFE.begin();
+  PFE.writeZapNumber(get_var_textarea_zap_number());
 }

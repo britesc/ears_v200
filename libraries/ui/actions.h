@@ -10,6 +10,7 @@ extern "C" {
 extern void action_action_reboot_system(lv_event_t * e);
 extern void action_action_button_message_box_confirm_erase_yes(lv_event_t * e);
 extern void action_action_get_cpu_id(lv_event_t * e);
+extern void action_action_update_zap_eeprom(lv_event_t * e);
 
 
 #ifdef __cplusplus

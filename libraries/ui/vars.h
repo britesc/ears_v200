@@ -31,6 +31,8 @@ extern bool get_var_global_variable_has_valid_password();
 extern void set_var_global_variable_has_valid_password(bool value);
 extern const char *get_var_global_variable_cpu_id();
 extern void set_var_global_variable_cpu_id(const char *value);
+extern const char *get_var_global_text_area_zap_number();
+extern void set_var_global_text_area_zap_number(const char *value);
 
 
 #ifdef __cplusplus

@@ -36,14 +36,24 @@ void remove_style_style_light_label_footer(lv_obj_t *obj);
 void add_style_style_image_button_hidden(lv_obj_t *obj);
 void remove_style_style_image_button_hidden(lv_obj_t *obj);
 
-// Style: Style_Message_Box
-void add_style_style_message_box(lv_obj_t *obj);
-void remove_style_style_message_box(lv_obj_t *obj);
+// Style: Style_Light_Message_Box
+void add_style_style_light_message_box(lv_obj_t *obj);
+void remove_style_style_light_message_box(lv_obj_t *obj);
 
 // Style: Style_Light_Label_Normal
 lv_style_t *get_style_style_light_label_normal_MAIN_DEFAULT();
 void add_style_style_light_label_normal(lv_obj_t *obj);
 void remove_style_style_light_label_normal(lv_obj_t *obj);
+
+// Style: Style_Light_Text_Area
+lv_style_t *get_style_style_light_text_area_MAIN_DEFAULT();
+void add_style_style_light_text_area(lv_obj_t *obj);
+void remove_style_style_light_text_area(lv_obj_t *obj);
+
+// Style: Style_Light_Keyboard
+lv_style_t *get_style_style_light_keyboard_MAIN_DEFAULT();
+void add_style_style_light_keyboard(lv_obj_t *obj);
+void remove_style_style_light_keyboard(lv_obj_t *obj);
 
 
 

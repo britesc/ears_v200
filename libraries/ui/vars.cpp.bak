@@ -11,14 +11,14 @@ char global_variable_error_code[100] = { 0 };
 bool global_variable_has_valid_zap_number;
 bool global_variable_has_valid_password;
 char global_variable_cpu_id[100] = { 0 };
-
+char global_text_area_zap_number[100] = { 0 };
 
 
 void init_vars() {
 	set_var_global_variable_error_code("0000");
 	set_var_global_variable_has_valid_zap_number(false);
 	set_var_global_variable_has_valid_password(false);
-	set_var_global_variable_cpu_id("00000000")
+	set_var_global_variable_cpu_id("00000000");
 }
 
 void tick_vars() {
