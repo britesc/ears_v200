@@ -1086,7 +1086,7 @@ void create_screen_screen_info_1() {
             // Label_Dynamic_Zap_Number_State
             lv_obj_t *obj = lv_label_create(parent_obj);
             objects.label_dynamic_zap_number_state = obj;
-            lv_obj_set_pos(obj, 187, 79);
+            lv_obj_set_pos(obj, 175, 79);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_label_set_long_mode(obj, LV_LABEL_LONG_CLIP);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SCROLL_WITH_ARROW|LV_OBJ_FLAG_SNAPPABLE);
@@ -1097,7 +1097,7 @@ void create_screen_screen_info_1() {
             // Label_Dynamic_Serial
             lv_obj_t *obj = lv_label_create(parent_obj);
             objects.label_dynamic_serial = obj;
-            lv_obj_set_pos(obj, 187, 40);
+            lv_obj_set_pos(obj, 175, 40);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_label_set_long_mode(obj, LV_LABEL_LONG_CLIP);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SCROLL_WITH_ARROW|LV_OBJ_FLAG_SNAPPABLE);
@@ -1108,7 +1108,7 @@ void create_screen_screen_info_1() {
             // Label_Dynamic_Password_State
             lv_obj_t *obj = lv_label_create(parent_obj);
             objects.label_dynamic_password_state = obj;
-            lv_obj_set_pos(obj, 187, 120);
+            lv_obj_set_pos(obj, 175, 120);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_label_set_long_mode(obj, LV_LABEL_LONG_CLIP);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SCROLL_WITH_ARROW|LV_OBJ_FLAG_SNAPPABLE);
